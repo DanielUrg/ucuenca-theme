@@ -1,0 +1,11 @@
+{
+	"name": "r3n0/ucuenca",
+	"description": "tema de prueba",
+	"authors": [
+		{
+			"name": "René Martínez",
+			"email": "hola@r3n0.com"
+		}
+	],
+	"require": {}
+}

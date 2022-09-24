@@ -1,4 +1,4 @@
-name: 🚀 Deploy ucuenca-theme
+name: 🚀 Deploy ucuenca-theme 2
 
 on:
   push:
@@ -16,10 +16,10 @@ jobs:
 
     # Los pasos representan una secuencia de tareas que se ejecutarán como parte del trabajo.
     steps:
-      - name: 🚚 Get latest code
-        uses: actions/checkout@v2
+      - name: 🚚 obtener el último código
+        uses: actions/checkout@v3
 
-      - name: 📂 Sync files
+      - name: 📂 Sincronizar archivos
         uses: SamKirkland/FTP-Deploy-Action@4.3.2
         with:
           server: ${{secrets.FTP_SERVER}}

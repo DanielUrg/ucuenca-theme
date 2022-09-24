@@ -17,11 +17,11 @@ jobs:
     # Los pasos representan una secuencia de tareas que se ejecutarán como parte del trabajo.
     steps:
       # Desprotege su repositorio en $GITHUB_WORKSPACE, para que su trabajo pueda acceder a él
-      - name: 🚚 Obtener el código más reciente
+      # - name: 🚚 Obtener el código más reciente
       - uses: actions/checkout@v3
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
-        uses: |
+        run: |
           echo Add other actions to build,
           echo test, and deploy your project.

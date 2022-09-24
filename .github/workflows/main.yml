@@ -1,23 +1,17 @@
-# This is a basic workflow to help you get started with Actions
+name: 🚀 Deploy ucuenca-theme
 
-name: CI
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
-  # Allows you to run this workflow manually from the Actions tab
+  # Le permite ejecutar este flujo de trabajo manualmente desde la pestaña Acciones
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# Una ejecución de flujo de trabajo se compone de uno o más trabajos que pueden ejecutarse secuencialmente o en paralelo
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  # Este flujo de trabajo (workflow) contiene un solo trabajo llamado "web-deploy"
+  web-deploy:
+    # El tipo de runner en el que se ejecutará el trabajo.
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job

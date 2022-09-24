@@ -16,12 +16,12 @@ jobs:
 
     # Los pasos representan una secuencia de tareas que se ejecutarán como parte del trabajo.
     steps:
-      # Desprotege su repositorio en $GITHUB_WORKSPACE, para que su trabajo pueda acceder a él
-      - uses: actions/checkout@v3
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v2
 
-      - name: 📂 Sincronizar archivos
-          uses: SamKirkland/FTP-Deploy-Action@4.3.2
-          with:
-            server: ${{secrets.FTP_SERVER}}
-            username: ${{ secrets.FTP_USERNAME_THEME}}
-            password: ${{ secrets.FTP_PASSWORD}}
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.3.2
+        with:
+          server: ${{secrets.FTP_SERVER}}
+          username: ${{ secrets.FTP_USERNAME}}
+          password: ${{ secrets.FTP_PASSWORD}}

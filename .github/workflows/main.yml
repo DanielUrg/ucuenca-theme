@@ -25,17 +25,18 @@ jobs:
           server: ${{secrets.FTP_SERVER}}
           username: ${{ secrets.FTP_USERNAME}}
           password: ${{ secrets.FTP_PASSWORD}}
+          local-dir: ./prod/
           exclude: |
             **/.git*
             **/.git*/**
             **/lib/**
             **/build/**
-            **/src/**
             **/templates/**
             .babelrc
             composer.json
             functions.php
-            gulpie.babel.js
+            gulpfile.babel.js
             package.json
+            package-lock.json
             README.md
             style.css

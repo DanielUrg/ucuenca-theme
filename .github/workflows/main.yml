@@ -26,17 +26,3 @@ jobs:
           username: ${{ secrets.FTP_USERNAME}}
           password: ${{ secrets.FTP_PASSWORD}}
           local-dir: ./prod/
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/lib/**
-            **/build/**
-            **/templates/**
-            .babelrc
-            composer.json
-            functions.php
-            gulpfile.babel.js
-            package.json
-            package-lock.json
-            README.md
-            style.css

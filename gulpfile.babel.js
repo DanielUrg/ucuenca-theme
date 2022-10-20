@@ -57,6 +57,7 @@ const paths = {
       "!package.json",
       "!package-lock.json",
       "!composer.json",
+      "!prod{,/**}",
     ],
     dest: "prod/ucuenca-theme",
   },

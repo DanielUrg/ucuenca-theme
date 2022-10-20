@@ -58,7 +58,7 @@ const paths = {
       "!package-lock.json",
       "!composer.json",
     ],
-    dest: "packaged",
+    dest: "prod/ucuenca-theme",
   },
 };
 
@@ -167,11 +167,13 @@ export const scripts = () => {
 };
 
 export const compress = () => {
-  return gulp
-    .src(paths.package.src)
-    .pipe(replace("_themename", info.name))
-    .pipe(zip(`${info.name}.zip`))
-    .pipe(gulp.dest(paths.package.dest));
+  return (
+    gulp
+      .src(paths.package.src)
+      .pipe(replace("_themename", info.name))
+      //.pipe(zip(`${info.name}.zip`))
+      .pipe(gulp.dest(paths.package.dest))
+  );
 };
 
 export const dev = gulp.series(

@@ -36,7 +36,6 @@ jobs:
             composer.json
             functions.php
             gulpie.babel.js
-            index.php
             package.json
             README.md
             style.css

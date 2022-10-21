@@ -59,7 +59,7 @@ const paths = {
       "!composer.json",
       "!prod{,/**}",
     ],
-    dest: "prod/ucuenca-theme",
+    dest: "prod/uCuenca-Theme",
   },
 };
 

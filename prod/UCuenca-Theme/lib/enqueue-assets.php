@@ -41,7 +41,7 @@ function ucuenca_theme_assets() {
 
 	wp_enqueue_style( 'custom-google-fonts', '//fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0', array(), $assets_version );
 
-	wp_register_script( 'ucuenca_theme-scripts', get_template_directory_uri() . '/src/assets/js/bundle.js', array(), $assets_version, true );
+	wp_register_script( 'ucuenca_theme-scripts', get_template_directory_uri() . '/dist/assets/js/bundle.js', array(), $assets_version, true );
 	wp_enqueue_script( 'ucuenca_theme-scripts' );
 }
 add_action( 'wp_enqueue_scripts', 'ucuenca_theme_assets' );

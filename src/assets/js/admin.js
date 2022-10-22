@@ -4,15 +4,15 @@
 //console.log("atual");
 
 ///  REVISAR
-// let openMainNabBtn = document.getElementById('open-main-nav-bar');
+//  let openMainNabBtn = document.getElementById('open-main-nav-bar');
 // let closeMainNabBtn = document.getElementById('close-main-nav-bar');
 let mainMenuModal = document.getElementById("main-nav-bar");
 let modal = document.getElementById("modal-bg");
 
 console.log("prueba-main6");
 
-// openMainNabBtn.addEventListener('click', addMainActive);
-// closeMainNabBtn.addEventListener('click', removeMainActive);
+openMainNabBtn.addEventListener("click", addMainActive);
+closeMainNabBtn.addEventListener("click", removeMainActive);
 
 function addMainActive() {
   mainMenuModal.classList.add("main-nav-bar--active");

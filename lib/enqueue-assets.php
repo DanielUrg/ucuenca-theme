@@ -41,7 +41,7 @@ function _themename_assets() {
 
 	wp_enqueue_style( 'custom-google-fonts', '//fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0', array(), $assets_version );
 
-	wp_register_script( '_themename-scripts', get_template_directory_uri() . '/dist/assets/js/bundle.js', array(), $assets_version, true );
+	wp_register_script( '_themename-scripts', get_template_directory_uri() . '/src/assets/js/bundle.js', array(), $assets_version, true );
 	wp_enqueue_script( '_themename-scripts' );
 }
 add_action( 'wp_enqueue_scripts', '_themename_assets' );
@@ -69,7 +69,8 @@ new StaticBlocks( 'header' );
 new StaticBlocks( 'footer' );
 new StaticBlocks( 'menu-lateral' );
 new StaticBlocks( 'banner-home' );
-
+new StaticBlocks( 'banner-facultad' );
+new StaticBlocks( 'page-facultad' );
 /**
  * Borrar
  * new PlaceholderBlock( 'eventsandblogs' );

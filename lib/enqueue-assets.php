@@ -71,13 +71,6 @@ new StaticBlocks( 'menu-lateral' );
 new StaticBlocks( 'banner-home' );
 new StaticBlocks( 'banner-facultad' );
 new StaticBlocks( 'page-facultad' );
-/**
- * Borrar
- * new PlaceholderBlock( 'eventsandblogs' );
- * new PlaceholderBlock( 'singlepost' );
- * new PlaceholderBlock( 'page' );
- * new PlaceholderBlock( 'blogindex' );
- */
 
 /**
  * Clase para crear bloques dinámicos JSX

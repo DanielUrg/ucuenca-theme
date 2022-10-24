@@ -34,7 +34,7 @@ add_action( 'after_setup_theme', 'uc_features' );
  * Agrega Walker para personalizar los menús
  */
 function register_custom_nav_walker() {
-	require_once 'lib/custom-walker-menu2.php';
+	require_once 'lib/class-custom-walker-menu2.php';
 }
 add_action( 'after_setup_theme', 'register_custom_nav_walker' );
 

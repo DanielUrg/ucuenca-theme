@@ -9,8 +9,6 @@
 let mainMenuModal = document.getElementById("main-nav-bar");
 let modal = document.getElementById("modal-bg");
 
-console.log("prueba-main6");
-
 // openMainNabBtn.addEventListener('click', addMainActive);
 // closeMainNabBtn.addEventListener('click', removeMainActive);
 

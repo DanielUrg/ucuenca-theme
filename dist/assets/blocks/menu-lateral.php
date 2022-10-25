@@ -1,3 +1,19 @@
+<?php
+/**
+ * Menú Lateral
+ *
+ * Menú lateral principal
+ *
+ * @category   Components
+ * @package    WordPress
+ * @subpackage _themename
+ * @author     Your Name <yourname@example.com>
+ * @license    https://www.gnu.org/licenses/gpl-3.0.txt GNU/GPLv3
+ * @link       https://yoursite.com
+ * @since      1.0.0
+ */
+
+?>
 <button class="btn nav-btn nav-btn__home btn--blue shadow-right" href="#">
 	<svg class="btn nav-btn nav-btn__home-icon--desktop">
 		<use xlink:href="#ucuenca"></use>
@@ -6,7 +22,7 @@
 			<use xlink:href="#uc"></use>
 		</svg>
 	</button>
-	<button onclick="addMainActive()" class="btn nav-btn nav-btn__main btn--red shadow-left" id="open-main-nav-bar">
+	<button  class="btn nav-btn nav-btn__main btn--red shadow-left" id="open-main-nav-bar">
 		<span class="material-symbols-sharp"> menu_open </span>
 	</button>
 		<!-- <button
@@ -19,7 +35,7 @@
 			<div class="main-nav-bar__bg main-nav-bar__bg-1"></div>
 			<div class="main-nav-bar__bg main-nav-bar__bg-2"></div>
 			<div class="main-nav-bar__bg main-nav-bar__bg-3"></div>
-			<button onclick="removeMainActive()" class="btn nav-btn nav-btn__cross btn--red shadow-left"
+			<button class="btn nav-btn nav-btn__cross btn--red shadow-left"
 				id="close-main-nav-bar">
 				<span class="material-symbols-sharp"> close </span>
 			</button>
@@ -54,7 +70,7 @@
 								'walker'         => new Custom_Walker_Menu2(),
 							),
 						);
-						?> 
+						?>
 					<button class="primari-nav__item btn btn--red shadow-left">
 						Admisión y becas
 					</button>
@@ -70,4 +86,4 @@
 
 
 <!-- modal-bg--active -->
-<div class="modal-bg" id="modal-bg" onclick="removeMainActive()"></div>
+<div class="modal-bg" id="modal-bg" ></div>

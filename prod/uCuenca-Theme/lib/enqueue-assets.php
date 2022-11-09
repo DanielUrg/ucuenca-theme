@@ -70,7 +70,9 @@ new StaticBlocks( 'footer' );
 new StaticBlocks( 'menu-lateral' );
 new StaticBlocks( 'banner-home' );
 new StaticBlocks( 'banner-facultad' );
+new StaticBlocks( 'page-facultad' );
 new StaticBlocks( 'page-facultades' );
+
 
 /**
  * Clase para crear bloques dinámicos JSX

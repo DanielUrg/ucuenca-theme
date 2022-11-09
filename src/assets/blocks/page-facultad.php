@@ -22,7 +22,7 @@
 		</div>	
 	</div>
 	<div class="pregrado">
-		<h2 class="headline">Pregrado</h2>
+		<h2 class="headline" id="pregrado">Pregrado</h2>
 		<?php
 			$post_pregrado = new WP_Query(
 				array(
@@ -64,7 +64,7 @@
 			<?php } wp_reset_postdata(); ?>
 		<p class="t-center no-margin"><a href="<?php echo esc_url( get_post_type_archive_link( 'carreras' ) ); ?>" class="btn btn--blue">Ver mas carreras</a></p>	
 	</div>
-	<div class="posgrado">
+	<div class="posgrado" id="posgrados">
 		<h2 class="headline">Posgrado</h2>
 		<?php
 			$post_posgrados = new WP_Query(
@@ -108,7 +108,7 @@
 	</div>
 </div>
 <div class="second_content">
-	<div class="eventos">
+	<div class="eventos" id="eventos">
 		<h2 class="headline">Eventos</h2>
 		<?php
 			$post_eventos = new WP_Query(
@@ -182,7 +182,7 @@
 			<?php } wp_reset_postdata(); ?>
 		<p class="t-center no-margin"><a href="<?php echo esc_url( get_post_type_archive_link( 'eventos' ) ); ?>" class="btn btn--blue">Ver mas eventos</a></p>	
 	</div>
-	<div class="noticias">
+	<div class="noticias" id="noticias">
 		<h2 class="headline">Noticias</h2>
 		<?php
 			$post_noticias = new WP_Query(

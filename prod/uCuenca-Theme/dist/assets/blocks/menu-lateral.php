@@ -14,14 +14,14 @@
  */
 
 ?>
-<button class="btn nav-btn nav-btn__home btn--blue shadow-right" href="#">
+<a class="btn nav-btn nav-btn__home btn--blue shadow-right" href="<?php echo esc_url( site_url() ); ?>">
 	<svg class="btn nav-btn nav-btn__home-icon--desktop">
 		<use xlink:href="#ucuenca"></use>
 		</svg>
 		<svg class="nav-btn__home-icon">
 			<use xlink:href="#uc"></use>
 		</svg>
-	</button>
+</a>
 	<button  class="btn nav-btn nav-btn__main btn--red shadow-left" id="open-main-nav-bar">
 		<span class="material-symbols-sharp"> menu_open </span>
 	</button>
@@ -66,7 +66,7 @@
 					<?php
 						wp_nav_menu(
 							array(
-								'theme_location' => 'menu-principal2',
+								'theme_location' => 'menu-principal-home',
 								'walker'         => new Custom_Walker_Menu2(),
 							),
 						);

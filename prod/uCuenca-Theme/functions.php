@@ -23,7 +23,7 @@ function uc_features() {
 	add_theme_support( 'post-thumbnails' ); /* Añade el suporte para imágenes destacadas dentro de los post */
 	add_image_size( 'banner', 400, 260, true );
 	add_image_size( 'banner_facultad', 400, 260, true );
-	register_nav_menu( 'menu-principal2', 'Menú principal2' ); /* Añade el soporte para menús de navegación en el dashboard (headerMenuLocation=>nombre a llamar) */
+	register_nav_menu( 'menu-principal-home', 'Menú principal2' ); /* Añade el soporte para menús de navegación en el dashboard (headerMenuLocation=>nombre a llamar) */
 }
 
 add_action( 'after_setup_theme', 'uc_features' );

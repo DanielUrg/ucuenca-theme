@@ -14,16 +14,16 @@
  */
 
 ?>
-<button class="btn nav-btn nav-btn__home btn--blue shadow-right" href="#">
+<a class="btn nav-btn nav-btn__home btn--blue shadow-right" href="<?php echo esc_url( site_url() ); ?>">
 	<svg class="btn nav-btn nav-btn__home-icon--desktop">
 		<use xlink:href="#ucuenca"></use>
 		</svg>
 		<svg class="nav-btn__home-icon">
 			<use xlink:href="#uc"></use>
 		</svg>
-	</button>
+</a>
 	<button  class="btn nav-btn nav-btn__main btn--red shadow-left" id="open-main-nav-bar">
-		<span class="material-symbols-sharp"> menu_open </span>
+		<span class="material-symbols-sharp"> manage_search </span>
 	</button>
 		<!-- <button
 			class="btn nav-btn nav-btn__loggedin btn--blue shadow-left"
@@ -31,14 +31,16 @@
 			<i class="fa-solid fa-plus"></i>
 		</button> -->
 		<!-- main-nav-bar--active -->
-	<div class="main-nav-bar" id="main-nav-bar">
+	<div class="main-nav-bar" id="main-nav-bar" >
 			<div class="main-nav-bar__bg main-nav-bar__bg-1"></div>
 			<div class="main-nav-bar__bg main-nav-bar__bg-2"></div>
 			<div class="main-nav-bar__bg main-nav-bar__bg-3"></div>
+			
 			<button class="btn nav-btn nav-btn__cross btn--red shadow-left"
 				id="close-main-nav-bar">
 				<span class="material-symbols-sharp"> close </span>
 			</button>
+			
 
 			<div class="main-nav-bar__content">
 				<div class="decoration decoration-1">
@@ -66,7 +68,7 @@
 					<?php
 						wp_nav_menu(
 							array(
-								'theme_location' => 'menu-principal2',
+								'theme_location' => 'menu-principal-home',
 								'walker'         => new Custom_Walker_Menu2(),
 							),
 						);

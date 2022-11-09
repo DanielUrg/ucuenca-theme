@@ -41,7 +41,7 @@ function _themename_assets() {
 
 	wp_enqueue_style( 'custom-google-fonts', '//fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0', array(), $assets_version );
 
-	wp_register_script( '_themename-scripts', get_template_directory_uri() . '/dist/assets/js/bundle.js', array(), $assets_version, true );
+	wp_register_script( '_themename-scripts', get_template_directory_uri() . '/dist/assets/js/bundle.js', array( 'jquery' ), $assets_version, true );
 	wp_enqueue_script( '_themename-scripts' );
 }
 add_action( 'wp_enqueue_scripts', '_themename_assets' );
@@ -53,7 +53,7 @@ add_action( 'wp_enqueue_scripts', '_themename_assets' );
  */
 function _themename_admin_assets() {
 	global $assets_version;
-	wp_register_style( '_themename-admin-stylesheet', get_template_directory_uri() . '/dist/assets/css/admin.css', array(), $assets_version, 'all' );
+	wp_register_style( '_themename-admin-stylesheet', get_template_directory_uri() . '/dist/assets/css/admin.css', array( 'jquery' ), $assets_version, 'all' );
 	wp_enqueue_style( '_themename-admin-stylesheet' );
 
 	wp_enqueue_style( 'custom-google-fonts', '//fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0', array(), $assets_version );
@@ -68,6 +68,7 @@ require_once 'class-staticblocks.php';
 new StaticBlocks( 'header' );
 new StaticBlocks( 'footer' );
 new StaticBlocks( 'menu-lateral' );
+new StaticBlocks( 'menu-facultad' );
 new StaticBlocks( 'banner-home' );
 new StaticBlocks( 'banner-facultad' );
 new StaticBlocks( 'page-facultad' );

@@ -14,11 +14,10 @@
  */
 
 ?>
-<h3>menu lateral</h3>
-
+<h3>menu lateral --</h3>
 				<nav class="primari-nav" id="main-nav">
 					<div class="accordion accordion-secundario">
-						<a href="#" class="underline primari-nav__item">Facultad</a>
+						<div class="underline primari-nav__item">Facultad</div>
 						<div class="accordion__plus">
 							<span class="material-symbols-sharp">
 								add
@@ -47,7 +46,7 @@
 						<a href="#">Diseño de Interiores</a>
 					</div>
 					<div class="accordion accordion-secundario">
-						<a href="#posgrados" class="underline primari-nav__item">Posgrados</a>
+						<div class="underline primari-nav__item">Posgrados</div>
 						<div class="accordion__plus">
 							<span class="material-symbols-sharp">
 								add
@@ -55,7 +54,7 @@
 						</div>
 					</div>
 					<div class="accordion accordion-secundario">
-						<a href="investigacion" class="underline primari-nav__item">Investigación</a>
+						<div class="underline primari-nav__item">Investigación</div>
 						<div class="accordion__plus">
 							<span class="material-symbols-sharp">
 								add

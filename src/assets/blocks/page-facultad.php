@@ -15,96 +15,98 @@
 
 ?>
 <div class="first_content">
-	<div class="vision">
-		<h2 class="headline">Visión general</h2>
-		<div class="vision_content">
-			<p><?php echo esc_attr( get_field( 'vision_general_fc' ) ); ?></p>
-		</div>	
-	</div>
-	<div class="pregrado">
-		<h2 class="headline" id="pregrado">Pregrado</h2>
-		<?php
-			$post_pregrado = new WP_Query(
-				array(
-					'posts_per_page' => 4,
-					'post_type'      => 'carreras',
-					'order'          => 'ASC',
-					'meta_query'     => array(
-						array(
-							'key'     => 'facultades',
-							'compare' => 'LIKE',
-							'value'   => '"' . get_the_ID() . '"',
-						),
-					),
-				)
-			)
-			?>
+	<div class="grid">
+		<div class="vision">
+			<h2 class="headline">Visión general</h2>
+			<div class="vision_content">
+				<p><?php echo esc_attr( get_field( 'vision_general_fc' ) ); ?></p>
+			</div>	
+		</div>
+		<div class="pregrado">
+			<h2 class="headline" id="pregrado">Pregrado</h2>
 			<?php
-			while ( $post_pregrado->have_posts() ) {
-				$post_pregrado->the_post();
-				?>
-				<div class="pregrado_card">
-					<img class="pregrado_card__image" src="<?php the_post_thumbnail_url(); ?>">
-					<div class="pregrado_card__content">
-						<h3 class="pregrado_card__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-						<p>
-							<?php
-							if ( has_excerpt() ) {
-								the_excerpt();
-							}
-							?>
-						</p>
-					</div>
-					<div class="accordion__plus">
-							<span class="material-symbols-sharp">
-								add
-							</span>
-					</div>
-				</div>
-			<?php } wp_reset_postdata(); ?>
-		<p class="t-center no-margin"><a href="<?php echo esc_url( get_post_type_archive_link( 'carreras' ) ); ?>" class="btn btn--blue">Ver mas carreras</a></p>	
-	</div>
-	<div class="posgrado" id="posgrados">
-		<h2 class="headline">Posgrado</h2>
-		<?php
-			$post_posgrados = new WP_Query(
-				array(
-					'posts_per_page' => 4,
-					'post_type'      => 'posgrados',
-					'order'          => 'ASC',
-					'meta_query'     => array(
-						array(
-							'key'     => 'facultades',
-							'compare' => 'LIKE',
-							'value'   => '"' . get_the_ID() . '"',
+				$post_pregrado = new WP_Query(
+					array(
+						'posts_per_page' => 4,
+						'post_type'      => 'carreras',
+						'order'          => 'ASC',
+						'meta_query'     => array(
+							array(
+								'key'     => 'facultades',
+								'compare' => 'LIKE',
+								'value'   => '"' . get_the_ID() . '"',
+							),
 						),
-					),
+					)
 				)
-			)
-			?>
-			<?php
-			while ( $post_posgrados->have_posts() ) {
-				$post_posgrados->the_post();
 				?>
-				<div class="posgrado_card">
-					<div class="posgrado_card__content">
-						<h3 class="posgrado_card__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-						<p>
-							<?php
-							if ( has_excerpt() ) {
-								the_excerpt();
-							}
-							?>
-						</p>
+				<?php
+				while ( $post_pregrado->have_posts() ) {
+					$post_pregrado->the_post();
+					?>
+					<div class="pregrado_card">
+						<img class="pregrado_card__image" src="<?php the_post_thumbnail_url(); ?>">
+						<div class="pregrado_card__content">
+							<h3 class="pregrado_card__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+							<p>
+								<?php
+								if ( has_excerpt() ) {
+									the_excerpt();
+								}
+								?>
+							</p>
+						</div>
+						<div class="accordion__plus">
+								<span class="material-symbols-sharp">
+									add
+								</span>
+						</div>
 					</div>
-					<div class="accordion__plus">
-							<span class="material-symbols-sharp">
-								add
-							</span>
+				<?php } wp_reset_postdata(); ?>
+			<p class="t-center no-margin"><a href="<?php echo esc_url( get_post_type_archive_link( 'carreras' ) ); ?>" class="btn btn--blue">Ver mas carreras</a></p>	
+		</div>
+		<div class="Posgrados" id="posgrados">
+			<h2 class="headline">Posgrado</h2>
+			<?php
+				$post_posgrados = new WP_Query(
+					array(
+						'posts_per_page' => 4,
+						'post_type'      => 'posgrados',
+						'order'          => 'ASC',
+						'meta_query'     => array(
+							array(
+								'key'     => 'facultades',
+								'compare' => 'LIKE',
+								'value'   => '"' . get_the_ID() . '"',
+							),
+						),
+					)
+				)
+				?>
+				<?php
+				while ( $post_posgrados->have_posts() ) {
+					$post_posgrados->the_post();
+					?>
+					<div class="posgrado_card">
+						<div class="posgrado_card__content">
+							<h3 class="posgrado_card__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+							<p>
+								<?php
+								if ( has_excerpt() ) {
+									the_excerpt();
+								}
+								?>
+							</p>
+						</div>
+						<div class="accordion__plus">
+								<span class="material-symbols-sharp">
+									add
+								</span>
+						</div>
 					</div>
-				</div>
-			<?php } wp_reset_postdata(); ?>
-		<p class="t-center no-margin"><a href="<?php echo esc_url( get_post_type_archive_link( 'posgrados' ) ); ?>" class="btn btn--blue">Ver mas posgrados</a></p>	
+				<?php } wp_reset_postdata(); ?>
+			<p class="t-center no-margin"><a href="<?php echo esc_url( get_post_type_archive_link( 'posgrados' ) ); ?>" class="btn btn--blue">Ver mas posgrados</a></p>	
+		</div>
 	</div>
 </div>
 <div class="second_content">

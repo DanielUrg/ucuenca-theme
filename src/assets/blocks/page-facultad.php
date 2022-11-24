@@ -14,25 +14,30 @@
  */
 
 ?>
-<div class="first_content">
-	<div class="grid">
-		<div class="vision">
-			<h2 class="headline">Visión general</h2>
-			<div class="vision_content">
-				<p><?php echo esc_attr( get_field( 'vision_general_fc' ) ); ?></p>
-			</div>	
+<div class="grid">
+	<div class="section facultad">
+		<h2 class="headline">Visión general</h2>
+		<div class="vision_content">
+			<p><?php echo esc_attr( get_field( 'vision_general_fc' ) ); ?></p>
+		</div>	
+	</div>
+	<div class="section historia">
+		<h2 class="headline">Historia</h2>
+		<div class="historia_content">
+			<p><?php echo esc_attr( get_field( 'historia' ) ); ?></p>
 		</div>
-		<div class="pregrado">
-			<h2 class="headline" id="pregrado">Pregrado</h2>
-			<?php
+	</div>
+	<div class="section pregrado facultad">
+		<h2 class="headline" id="pregrado">Pregrado</h2>
+		<?php
 				$post_pregrado = new WP_Query(
 					array(
 						'posts_per_page' => 4,
-						'post_type'      => 'carreras',
+						'post_type'      => 'uc_carrera',
 						'order'          => 'ASC',
 						'meta_query'     => array(
 							array(
-								'key'     => 'facultades',
+								'key'     => 'relacion_facultades',
 								'compare' => 'LIKE',
 								'value'   => '"' . get_the_ID() . '"',
 							),
@@ -63,64 +68,61 @@
 						</div>
 					</div>
 				<?php } wp_reset_postdata(); ?>
-			<p class="t-center no-margin"><a href="<?php echo esc_url( get_post_type_archive_link( 'carreras' ) ); ?>" class="btn btn--blue">Ver mas carreras</a></p>	
-		</div>
-		<div class="Posgrados" id="posgrados">
-			<h2 class="headline">Posgrado</h2>
-			<?php
-				$post_posgrados = new WP_Query(
-					array(
-						'posts_per_page' => 4,
-						'post_type'      => 'posgrados',
-						'order'          => 'ASC',
-						'meta_query'     => array(
-							array(
-								'key'     => 'facultades',
-								'compare' => 'LIKE',
-								'value'   => '"' . get_the_ID() . '"',
-							),
-						),
-					)
-				)
-				?>
-				<?php
-				while ( $post_posgrados->have_posts() ) {
-					$post_posgrados->the_post();
-					?>
-					<div class="posgrado_card">
-						<div class="posgrado_card__content">
-							<h3 class="posgrado_card__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-							<p>
-								<?php
-								if ( has_excerpt() ) {
-									the_excerpt();
-								}
-								?>
-							</p>
-						</div>
-						<div class="accordion__plus">
-								<span class="material-symbols-sharp">
-									add
-								</span>
-						</div>
-					</div>
-				<?php } wp_reset_postdata(); ?>
-			<p class="t-center no-margin"><a href="<?php echo esc_url( get_post_type_archive_link( 'posgrados' ) ); ?>" class="btn btn--blue">Ver mas posgrados</a></p>	
-		</div>
+		<p class="t-center no-margin"><a href="<?php echo esc_url( get_post_type_archive_link( 'carreras' ) ); ?>" class="btn btn--blue">Ver mas carreras</a></p>
 	</div>
-</div>
-<div class="second_content">
-	<div class="eventos" id="eventos">
+	<div class="section posgrados facultad">
+		<h2 class="headline">Posgrado</h2>
+		<?php
+			$post_posgrados = new WP_Query(
+				array(
+					'posts_per_page' => 4,
+					'post_type'      => 'uc_posgrado',
+					'order'          => 'ASC',
+					'meta_query'     => array(
+						array(
+							'key'     => 'facultades',
+							'compare' => 'LIKE',
+							'value'   => '"' . get_the_ID() . '"',
+						),
+					),
+				)
+			)
+			?>
+			<?php
+			while ( $post_posgrados->have_posts() ) {
+				$post_posgrados->the_post();
+				?>
+				<div class="posgrado_card">
+					<div class="posgrado_card__content">
+						<h3 class="posgrado_card__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+						<p>
+							<?php
+							if ( has_excerpt() ) {
+								the_excerpt();
+							}
+							?>
+						</p>
+					</div>
+					<div class="accordion__plus">
+							<span class="material-symbols-sharp">
+								add
+							</span>
+					</div>
+				</div>
+			<?php } wp_reset_postdata(); ?>
+			<p class="t-center no-margin"><a href="<?php echo esc_url( get_post_type_archive_link( 'posgrados' ) ); ?>" class="btn btn--blue">Ver mas posgrados</a></p>
+	</div>
+	<div class="section eventos facultad">
 		<h2 class="headline">Eventos</h2>
 		<?php
 			$post_eventos = new WP_Query(
 				array(
 					'posts_per_page' => 3,
-					'post_type'      => 'event',
+					'post_type'      => 'uc_evento',
 					'order'          => 'ASC',
 					'meta_query'     => array(
 						array(
-							'key'     => 'facultades',
+							'key'     => 'relacion_facultades',
 							'compare' => 'LIKE',
 							'value'   => '"' . get_the_ID() . '"',
 						),
@@ -153,44 +155,38 @@
 									echo esc_attr( '-' . $fecha_fin->format( 'd' ) );
 								?>
 							</p>
-
 						</div>
 						<div class="group2">
 								<p><?php echo esc_attr( get_field( 'ubicacion_evento' ) ); ?></p>
 								<p><?php echo esc_attr( get_field( 'horario' ) ); ?></p>
 						</div>
-						</div>
 						<div class="group3">
-						<p>
-							<?php
-							if ( has_excerpt() ) {
-								the_excerpt();
-							} else {
-								echo esc_attr( wp_trim_words( get_the_content(), 180 ) );
-							}
-							?>
-						</p>
-						<div class="accordion__plus">
-							<span class="material-symbols-sharp">
-								add
-							</span>
-
+							<p>
+								<?php
+								if ( has_excerpt() ) {
+									the_excerpt();
+								} else {
+									echo esc_attr( wp_trim_words( get_the_content(), 180 ) );
+								}
+								?>
+							</p>
+							<div class="accordion__plus">
+								<span class="material-symbols-sharp">
+									add
+								</span>
+							</div>
 						</div>
-						
 					</div>
-					</div>
-					
 				</div>
 			<?php } wp_reset_postdata(); ?>
-		<p class="t-center no-margin"><a href="<?php echo esc_url( get_post_type_archive_link( 'eventos' ) ); ?>" class="btn btn--blue">Ver mas eventos</a></p>	
 	</div>
-	<div class="noticias" id="noticias">
+	<div class="section noticias facultad">
 		<h2 class="headline">Noticias</h2>
 		<?php
 			$post_noticias = new WP_Query(
 				array(
 					'posts_per_page' => 4,
-					'post_type'      => 'noticia',
+					'post_type'      => 'uc_noticia',
 					'order'          => 'ASC',
 					'meta_query'     => array(
 						array(
@@ -217,6 +213,6 @@
 					</div>
 				</div>
 			<?php } wp_reset_postdata(); ?>
-		<p class="t-center no-margin"><a href="<?php echo esc_url( get_post_type_archive_link( 'posgrados' ) ); ?>" class="btn btn--blue">Ver mas posgrados</a></p>	
+		<p class="t-center no-margin"><a href="<?php echo esc_url( get_post_type_archive_link( 'posgrados' ) ); ?>" class="btn btn--blue">Ver mas posgrados</a></p>
 	</div>
 </div>

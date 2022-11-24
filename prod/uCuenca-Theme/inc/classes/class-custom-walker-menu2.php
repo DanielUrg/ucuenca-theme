@@ -31,7 +31,7 @@ if ( ! class_exists( 'Custom_Walker_Menu2' ) ) {
 			if ( 0 === $depth ) {
 				$output .= '<li> ';
 				$output .=
-					"<div class='accordion'>
+					"<div class='accordion accordion-principal'>
 						<a href='" . $item->url . "' class='underline primari-nav__item'>
 							" . $item->title . "
 						</a>

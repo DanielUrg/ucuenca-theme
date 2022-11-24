@@ -36,7 +36,7 @@ add_action( 'after_setup_theme', '_themename_features' );
  * Agrega Walker para personalizar los menús
  */
 function register_custom_nav_walker() {
-	require_once 'lib/class-custom-walker-menu2.php';
+	require_once 'inc/classes/class-custom-walker-menu2.php';
 }
 add_action( 'after_setup_theme', 'register_custom_nav_walker' );
 
@@ -44,12 +44,12 @@ add_action( 'after_setup_theme', 'register_custom_nav_walker' );
 /**
  * Funciones que son reutilizadas varias veces a lo largo del tema.
  */
-require_once 'lib/helpers.php';
+require_once 'inc/helpers.php';
 /**
  * Este es un documento para incluir todos los archivos de css y javascript.
  */
-require_once 'lib/enqueue-assets.php';
+require_once 'inc/enqueue-assets.php';
 /**
  * Este es un documento para incluir todos los archivos de css y javascript.
  */
-require_once 'lib/icon-functions.php';
+require_once 'inc/icon-functions.php';

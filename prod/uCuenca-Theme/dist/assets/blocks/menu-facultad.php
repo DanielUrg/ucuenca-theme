@@ -6,7 +6,7 @@
  *
  * @category   Components
  * @package    WordPress
- * @subpackage _themename
+ * @subpackage ucuenca_theme
  * @author     Your Name <yourname@example.com>
  * @license    https://www.gnu.org/licenses/gpl-3.0.txt GNU/GPLv3
  * @link       https://yoursite.com

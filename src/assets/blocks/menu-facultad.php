@@ -14,10 +14,10 @@
  */
 
 ?>
-<h3>menu lateral --</h3>
+<h3>header</h3>
 				<nav class="primari-nav" id="main-nav">
 					<div class="accordion accordion-secundario">
-						<div class="underline primari-nav__item">Facultad</div>
+						<div class="underline primari-nav__item" data-filter=".facultad">Facultad</div>
 						<div class="accordion__plus">
 							<span class="material-symbols-sharp">
 								add
@@ -25,13 +25,13 @@
 						</div>
 					</div>
 					<div class="primari-nav__submenu accordion__panel" >
-						<a href="#">Historia</a>    
-						<a href="#">Autoridades</a> 
-						<a href="#">Personal Administrativo</a> 
-						<a href="#">Directorio</a>  
+						<a href="#" class="second-nav__item" data-filter=".historia">Historia</a>    
+						<a href="#" class="second-nav__item" data-filter=".autoridades" >Autoridades</a> 
+						<a href="#" class="second-nav__item" data-filter=".personal">Personal Administrativo</a> 
+						<a href="#" class="second-nav__item" data-filter=".directorio">Directorio</a>  
 					</div>
 					<div class="accordion accordion-secundario">
-						<a href="#pregrado" class="underline primari-nav__item">Carreras</a>
+						<div class="underline primari-nav__item" data-filter=".pregrado">Carreras</div>
 						<div class="accordion__plus">
 							<span class="material-symbols-sharp">
 								add
@@ -39,14 +39,31 @@
 						</div>
 					</div>
 					<div class="primari-nav__submenu accordion__panel" >
-						<a href="#">Artes Vusuales</a>
-						<a href="#">Artes Musicales</a>
-						<a href="#">Artes Escénicas</a>
-						<a href="#">Diseño Gráfico</a>
-						<a href="#">Diseño de Interiores</a>
+                    <?php
+                        $post_pregrado = new WP_Query(
+                            array(
+                                'posts_per_page' => -1,
+                                'post_type'      => 'uc_carrera',
+                                'order'          => 'ASC',
+                                'meta_query'     => array(
+                                    array(
+                                        'key'     => 'relacion_facultades',
+                                        'compare' => 'LIKE',
+                                        'value'   => '"' . get_the_ID() . '"',
+                                    ),
+                                ),
+                            )
+                        )
+                        ?>
+                        <?php
+                        while ( $post_pregrado->have_posts() ) {
+                            $post_pregrado->the_post();
+                            ?>
+                                <a href="<?php the_permalink()?>"><?php echo the_title() ?></a>
+                        <?php } wp_reset_postdata(); ?>
 					</div>
 					<div class="accordion accordion-secundario">
-						<div class="underline primari-nav__item">Posgrados</div>
+						<div class="underline primari-nav__item" data-filter=".posgrados">Posgrados</div>
 						<div class="accordion__plus">
 							<span class="material-symbols-sharp">
 								add
@@ -67,7 +84,7 @@
 						<a href="#">Gestión</a>
 					</div>
 					<div class="accordion accordion-secundario">
-						<a href="vinculacion" class="underline primari-nav__item">Vinculación</a>
+						<div class="underline primari-nav__item">Vinculación</div>
 						<div class="accordion__plus">
 							<span class="material-symbols-sharp">
 								add
@@ -79,7 +96,7 @@
 						<a href="#">Proyectos</a>
 					</div>
 					<div class="accordion accordion-secundario">
-						<a href="estudiantes" class="underline primari-nav__item">Estudiantes</a>
+						<div class="underline primari-nav__item">Estudiantes</div>
 						<div class="accordion__plus">
 							<span class="material-symbols-sharp">
 								add
@@ -93,7 +110,7 @@
 						<a href="#">Alumni</a>
 					</div>
 					<div class="accordion accordion-secundario">
-						<a href="tramites" class="underline primari-nav__item">Trámites</a>
+						<div class="underline primari-nav__item">Trámites</div>
 						<div class="accordion__plus">
 							<span class="material-symbols-sharp">
 								add
@@ -107,7 +124,7 @@
 						<a href="#">Horarios</a>
 					</div>
 					<div class="accordion accordion-secundario">
-						<a href="#eventos" class="underline primari-nav__item">Eventos</a>
+						<div class="underline primari-nav__item" data-filter=".eventos">Eventos</div>
 						<div class="accordion__plus">
 							<span class="material-symbols-sharp">
 							arrow_downward
@@ -115,7 +132,7 @@
 						</div>
 					</div>
 					<div class="accordion">
-						<a href="#noticias" class="underline primari-nav__item">Noticias</a>
+						<div class="underline primari-nav__item" data-filter=".noticias">Noticias</div>
 						<div class="accordion__plus">
 							<span class="material-symbols-sharp">
 								arrow_downward
@@ -123,7 +140,5 @@
 						</div>
 					</div>
 				</nav>
-
-
 <!-- modal-bg--active -->
 <div class="modal-bg" id="modal-bg" ></div>

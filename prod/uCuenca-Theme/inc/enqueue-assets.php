@@ -4,7 +4,7 @@
  *
  * Este es un documento para incluir todos los archivos de css y javascript
  *
- * @package _themename
+ * @package ucuenca_theme
  */
 
 /**
@@ -16,7 +16,7 @@
  *
  * @return $version
  */
-function _themename_get_assets_version() {
+function ucuenca_theme_get_assets_version() {
 	$version;
 
 	if ( WP_DEBUG === true ) {
@@ -26,7 +26,7 @@ function _themename_get_assets_version() {
 	}
 	return $version;
 }
-$assets_version = _themename_get_assets_version();
+$assets_version = ucuenca_theme_get_assets_version();
 global $assets_version;
 
 /**
@@ -34,37 +34,37 @@ global $assets_version;
  *
  * @return void
  */
-function _themename_assets() {
+function ucuenca_theme_assets() {
 	global $assets_version;
-	wp_register_style( '_themename-stylesheet', get_template_directory_uri() . '/dist/assets/css/bundle.css', array(), $assets_version, 'all' );
-	wp_enqueue_style( '_themename-stylesheet' );
+	wp_register_style( 'ucuenca_theme-stylesheet', get_template_directory_uri() . '/dist/assets/css/bundle.css', array(), $assets_version, 'all' );
+	wp_enqueue_style( 'ucuenca_theme-stylesheet' );
 
 	wp_enqueue_style( 'custom-google-fonts', '//fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0', array(), $assets_version );
 
-	wp_register_script( '_themename-scripts', get_template_directory_uri() . '/dist/assets/js/bundle.js', array( 'jquery' ), $assets_version, true );
-	wp_enqueue_script( '_themename-scripts' );
+	wp_register_script( 'ucuenca_theme-scripts', get_template_directory_uri() . '/dist/assets/js/bundle.js', array( 'jquery' ), $assets_version, true );
+	wp_enqueue_script( 'ucuenca_theme-scripts' );
 }
-add_action( 'wp_enqueue_scripts', '_themename_assets' );
+add_action( 'wp_enqueue_scripts', 'ucuenca_theme_assets' );
 
 /**
  * Función de de agregar estilos y scripts del admin
  *
  * @return void
  */
-function _themename_admin_assets() {
+function ucuenca_theme_admin_assets() {
 	global $assets_version;
-	wp_register_style( '_themename-admin-stylesheet', get_template_directory_uri() . '/dist/assets/css/admin.css', array( 'jquery' ), $assets_version, 'all' );
-	wp_enqueue_style( '_themename-admin-stylesheet' );
+	wp_register_style( 'ucuenca_theme-admin-stylesheet', get_template_directory_uri() . '/dist/assets/css/admin.css', array( 'jquery' ), $assets_version, 'all' );
+	wp_enqueue_style( 'ucuenca_theme-admin-stylesheet' );
 
 	wp_enqueue_style( 'custom-google-fonts', '//fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0', array(), $assets_version );
 
-	wp_register_script( '_themename-admin-scripts', get_template_directory_uri() . '/dist/assets/js/admin.js', array(), $assets_version, true );
-	wp_enqueue_script( '_themename-admin-scripts' );
+	wp_register_script( 'ucuenca_theme-admin-scripts', get_template_directory_uri() . '/dist/assets/js/admin.js', array(), $assets_version, true );
+	wp_enqueue_script( 'ucuenca_theme-admin-scripts' );
 
 }
-add_action( 'admin_enqueue_scripts', '_themename_admin_assets' );
+add_action( 'admin_enqueue_scripts', 'ucuenca_theme_admin_assets' );
 
-require_once 'class-staticblocks.php';
+require_once 'classes/class-staticblocks.php';
 new StaticBlocks( 'header' );
 new StaticBlocks( 'footer' );
 new StaticBlocks( 'menu-lateral' );
@@ -79,7 +79,7 @@ new StaticBlocks( 'page-facultades' );
  * Clase para crear bloques dinámicos JSX
  */
 
-require_once 'class-staticblocks.php';
+require_once 'classes/class-dynamicblocks.php';
 
 /**
  * Borrar

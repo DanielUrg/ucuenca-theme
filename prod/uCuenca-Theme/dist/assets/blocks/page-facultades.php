@@ -19,7 +19,7 @@
 	$posts_events = new WP_Query(
 		array(
 			'posts_per_page' => 0,
-			'post_type'      => 'facultades',
+			'post_type'      => 'uc_facultad',
 			'order'          => 'ASC',
 		)
 	)

@@ -1,6 +1,6 @@
 <?php
 /**
- * Page-facultad
+ * Content-facultad
  *
  * Pantilla para la página de facultad
  *

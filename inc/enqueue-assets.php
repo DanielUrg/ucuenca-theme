@@ -67,12 +67,12 @@ add_action( 'admin_enqueue_scripts', '_themename_admin_assets' );
 require_once 'classes/class-staticblocks.php';
 new StaticBlocks( 'header' );
 new StaticBlocks( 'footer' );
-new StaticBlocks( 'menu-lateral' );
+new StaticBlocks( 'menu-principal' );
 new StaticBlocks( 'menu-facultad' );
 new StaticBlocks( 'banner-home' );
 new StaticBlocks( 'banner-facultad' );
-new StaticBlocks( 'page-facultad' );
-new StaticBlocks( 'page-facultades' );
+new StaticBlocks( 'content-facultad' );
+new StaticBlocks( 'content-facultades' );
 
 
 /**
